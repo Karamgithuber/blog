@@ -1,0 +1,14 @@
+<p>add-employee </p>
+<form [formGroup]="AddEmp" (ngSubmit)="onSubmit()" class="mb-5">
+    <label for="name"  class="form-label">Name: </label>
+    <input id="name" type="text" formControlName="name" class="form-control">
+    <label for="email"  class="form-label">Email: </label>
+    <input id="email" type="email" formControlName="email" class="form-control">
+    <label for="phone"  class="form-label">Phone: </label>
+    <input id="phone" type="text" formControlName="phone" class="form-control">
+    <label for="salary"  class="form-label">Salary: </label>
+    <input id="salary" type="text" formControlName="salary" class="form-control">
+    <label for="department"  class="form-label">Department: </label>
+    <input id="department" type="text" formControlName="department" class="form-control">
+    <button type="submit" class="btn btn-primary mt-3" [disabled]="!AddEmp.valid">Submit</button>
+</form>
