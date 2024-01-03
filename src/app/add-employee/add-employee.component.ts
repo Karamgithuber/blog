@@ -9,6 +9,7 @@ import { EmployeeService } from '../employee.service';
 })
 export class AddEmployeeComponent implements OnInit {
   AddEmp: FormGroup;
+  skills: any;
 
    constructor(private fb: FormBuilder ,public employeeService:EmployeeService) {
     this.AddEmp = this.fb.group({
@@ -17,10 +18,14 @@ export class AddEmployeeComponent implements OnInit {
       phone: ['', Validators.required],
       salary: ['', Validators.required],
       department: ['', Validators.required],
+      employeeSkills: ['',[]],
     });
   }
 
   ngOnInit(): void {
+    this.employeeService.getSkills().subscribe((Response)=>{
+      this.skills =Response
+    })
   }
   onSubmit() {
      // Call the postEmployees method from the service

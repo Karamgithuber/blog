@@ -7,19 +7,26 @@
         <th scope="col">phone</th>
         <th scope="col">salary</th>
         <th scope="col">department</th>
+        <th scope="col">skills</th>
         <th scope="col">Action</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let emp of myEmployees">
-        <th scope="row">{{emp.name}}</th>
-        <td>{{emp.email}}</td>
-        <td>{{emp.phone}}</td>
-        <td>{{emp.salary}}</td>
-        <td>{{emp.department}}</td>
+        <th scope="row">{{emp.Name}}</th>
+        <td>{{emp.Email}}</td>
+        <td>{{emp.Phone}}</td>
+        <td>{{emp.Salary}}</td>
+        <td>{{emp.Department}}</td>
+        <td *ngIf="emp.EmployeeSkills.$values && emp.EmployeeSkills.$values.length > 0">
+          <span *ngFor="let employeeSkill of emp.EmployeeSkills.$values">{{ employeeSkill.Skill.Name }}</span>
+          <br>
+        </td>
+        <td *ngIf="!(emp.EmployeeSkills.$values) || emp.EmployeeSkills.$values.length === 0">----</td>
+        
         <td>
-            <button class="btn btn-primary me-2"><i class="bi bi-pencil-fill"></i></button>
-            <button class="btn btn-danger"><i class="bi bi-archive"></i></button>
+            <a  type="button" class="btn btn-primary me-2 mb-2" [routerLink]="'/edit/' + emp.Id"><i class="bi bi-pencil-fill"></i></a>
+            <button class="btn btn-danger" (click)="deleteEmployee(emp.Id)"><i class="bi bi-archive"></i></button>
         </td>
       </tr>
 

@@ -12,14 +12,17 @@ export class EmployeeService {
   getEmployees(): Observable<any> {
     return this.http.get(`${this.apiUrl}api/Employees`);
   }
+  getSkills(): Observable<any> {
+    return this.http.get(`${this.apiUrl}api/Skill`);
+  }
   getEmployee(id:string): Observable<any> {
-    return this.http.get(`${this.apiUrl}api/Employees`+ id);
+    return this.http.get(`${this.apiUrl}api/Employees/${id}`);
   }
  deleteEmployee(id:string): Observable<any> {
-    return this.http.delete(`${this.apiUrl}api/Employees`+ id);
+    return this.http.delete(`${this.apiUrl}api/Employees/`+ id);
   }
  updateEmployee(id:string ,data:any): Observable<any> {
-    return this.http.put(`${this.apiUrl}api/Employees`+ id ,data);
+    return this.http.put(`${this.apiUrl}api/Employees/`+ id ,data);
   }
 
 postEmployees(data: any): Observable<any> {

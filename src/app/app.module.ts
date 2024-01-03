@@ -6,6 +6,7 @@ import { EmployeeListComponent } from './employee-list/employee-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AddEmployeeComponent } from './add-employee/add-employee.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { EditEmployeeComponent } from './edit-employee/edit-employee.component';
 export const routes: Routes = [
 {
   path:'',
@@ -15,12 +16,17 @@ export const routes: Routes = [
   path:'add-employee',
   component: AddEmployeeComponent
 },
+{
+  path:'edit/:Id',
+  component: EditEmployeeComponent
+},
 ]
 @NgModule({
   declarations: [
     AppComponent,
     EmployeeListComponent,
     AddEmployeeComponent,
+    EditEmployeeComponent,
     
   ],
   imports: [

@@ -1,5 +1,7 @@
-<p>add-employee </p>
+<p>edit-employee</p>
 <form [formGroup]="AddEmp" (ngSubmit)="onSubmit()" class="mb-5">
+    <label for="id"  class="form-label">Id: </label>
+    <input id="id" type="text" formControlName="id" class="form-control" readonly>
     <label for="name"  class="form-label">Name: </label>
     <input id="name" type="text" formControlName="name" class="form-control">
     <label for="email"  class="form-label">Email: </label>
@@ -10,12 +12,5 @@
     <input id="salary" type="text" formControlName="salary" class="form-control">
     <label for="department"  class="form-label">Department: </label>
     <input id="department" type="text" formControlName="department" class="form-control">
-    <label for="skill"  class="form-label">Skills: </label>
-    <select id="skill" formControlName="employeeSkills" class="form-select" multiple>
-        <option value="">select skill</option>
-        <option *ngFor="let skill of skills" [value]="skill.id">{{skill.name}}</option>
-
-    </select>
-    
     <button type="submit" class="btn btn-primary mt-3" [disabled]="!AddEmp.valid">Submit</button>
 </form>
